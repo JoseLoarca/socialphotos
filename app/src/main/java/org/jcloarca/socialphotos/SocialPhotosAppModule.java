@@ -6,33 +6,36 @@ import android.content.SharedPreferences;
 
 import javax.inject.Singleton;
 
+import dagger.Module;
 import dagger.Provides;
 
 /**
  * Created by JCLoarca on 7/20/2016 10:53 PM.
  */
+@Module
 public class SocialPhotosAppModule {
-    SocialPhotosApp app;
+    Application application;
+    private final static String SHARED_PREFERENCES_NAME = "UserPrefs";
 
-    public SocialPhotosAppModule(SocialPhotosApp app) {
-        this.app = app;
+    public SocialPhotosAppModule(Application application) {
+        this.application = application;
     }
 
     @Provides
     @Singleton
-    Context provideApplicationContext(){
-        return app.getApplicationContext();
+    SharedPreferences providesSharedPreferences(Application application) {
+        return application.getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE);
     }
 
     @Provides
     @Singleton
-    SharedPreferences providesSharedPreferences(Application application){
-        return application.getSharedPreferences(app.getSharedPreferencesName(), Context.MODE_PRIVATE);
+    Context providesContext() {
+        return application.getApplicationContext();
     }
 
     @Provides
     @Singleton
-    SocialPhotosApp providesApplication(){
-        return this.app;
+    Application providesApplication() {
+        return application;
     }
 }

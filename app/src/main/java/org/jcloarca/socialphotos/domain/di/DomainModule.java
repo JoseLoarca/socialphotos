@@ -19,11 +19,7 @@ import dagger.Provides;
 
 @Module
 public class DomainModule {
-    String firebaseURL;
-
-    public DomainModule(String firebaseURL) {
-        this.firebaseURL = firebaseURL;
-    }
+    private final static String FIREBASE_URL = "https://androidphotofeed.firebaseio.com/";
 
     @Provides
     @Singleton
@@ -33,14 +29,8 @@ public class DomainModule {
 
     @Provides
     @Singleton
-    Firebase providesFirebase(String firebaseURL) {
-        return new Firebase(firebaseURL);
-    }
-
-    @Provides
-    @Singleton
-    String providesFirebaseURL() {
-        return this.firebaseURL;
+    Firebase providesFirebase() {
+        return new Firebase(FIREBASE_URL);
     }
 
     @Provides
@@ -54,5 +44,4 @@ public class DomainModule {
     Geocoder providesGeocoder(Context context) {
         return new Geocoder(context);
     }
-
 }
