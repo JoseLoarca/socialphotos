@@ -1,7 +1,9 @@
-package org.jcloarca.socialphotos;
+package org.jcloarca.socialphotos.login.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import org.jcloarca.socialphotos.R;
 
 public class LoginActivity extends AppCompatActivity {
 
