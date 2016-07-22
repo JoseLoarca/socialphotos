@@ -1,6 +1,8 @@
 package org.jcloarca.socialphotos;
 
 import android.app.Application;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 
 import com.firebase.client.Firebase;
 
@@ -10,6 +12,10 @@ import org.jcloarca.socialphotos.login.di.DaggerLoginComponent;
 import org.jcloarca.socialphotos.login.di.LoginComponent;
 import org.jcloarca.socialphotos.login.di.LoginModule;
 import org.jcloarca.socialphotos.login.ui.LoginView;
+import org.jcloarca.socialphotos.main.di.DaggerMainComponent;
+import org.jcloarca.socialphotos.main.di.MainComponent;
+import org.jcloarca.socialphotos.main.di.MainModule;
+import org.jcloarca.socialphotos.main.ui.MainView;
 
 /**
  * Created by JCLoarca on 7/20/2016 10:44 PM.
@@ -65,7 +71,7 @@ public class SocialPhotosApp extends Application {
                 .photoMapModule(new PhotoMapModule(view))
                 .build();
 
-    }
+    }*/
 
     public MainComponent getMainComponent(MainView view, FragmentManager manager, Fragment[]fragments, String[] titles) {
         return DaggerMainComponent
@@ -75,7 +81,7 @@ public class SocialPhotosApp extends Application {
                 .libsModule(libsModule)
                 .mainModule(new MainModule(view, manager, fragments, titles))
                 .build();
-    }*/
+    }
 
     public LoginComponent getLoginComponent(LoginView view) {
         return DaggerLoginComponent
@@ -87,5 +93,6 @@ public class SocialPhotosApp extends Application {
                 .build();
 
     }
+
 
 }

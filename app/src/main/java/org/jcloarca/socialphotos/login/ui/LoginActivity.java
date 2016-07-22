@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
-import org.jcloarca.socialphotos.MainActivity;
+import org.jcloarca.socialphotos.main.ui.MainActivity;
 import org.jcloarca.socialphotos.R;
 import org.jcloarca.socialphotos.SocialPhotosApp;
 import org.jcloarca.socialphotos.login.LoginPresenter;
