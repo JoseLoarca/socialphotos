@@ -21,6 +21,10 @@ import org.jcloarca.socialphotos.photolist.di.PhotoListComponent;
 import org.jcloarca.socialphotos.photolist.di.PhotoListModule;
 import org.jcloarca.socialphotos.photolist.ui.PhotoListView;
 import org.jcloarca.socialphotos.photolist.ui.adapters.OnItemClickListener;
+import org.jcloarca.socialphotos.photomap.di.DaggerPhotoMapComponent;
+import org.jcloarca.socialphotos.photomap.di.PhotoMapComponent;
+import org.jcloarca.socialphotos.photomap.di.PhotoMapModule;
+import org.jcloarca.socialphotos.photomap.ui.PhotoMapView;
 
 /**
  * Created by JCLoarca on 7/20/2016 10:44 PM.
@@ -65,7 +69,7 @@ public class SocialPhotosApp extends Application {
 
     }
 
-    /*public PhotoMapComponent getPhotoMapComponent(Fragment fragment, PhotoMapView view) {
+    public PhotoMapComponent getPhotoMapComponent(Fragment fragment, PhotoMapView view) {
         libsModule.setFragment(fragment);
 
         return DaggerPhotoMapComponent
@@ -76,7 +80,7 @@ public class SocialPhotosApp extends Application {
                 .photoMapModule(new PhotoMapModule(view))
                 .build();
 
-    }*/
+    }
 
     public MainComponent getMainComponent(MainView view, FragmentManager manager, Fragment[]fragments, String[] titles) {
         return DaggerMainComponent
